@@ -32,7 +32,7 @@ jobs:
       # We use fs mode to check the actual source code
       # Other scan types such as git repo and image seem less appropriate
       - name: Run Trivy vulnerability scanner in fs mode
-        uses: aquasecurity/trivy-action@0.29.0
+        uses: aquasecurity/trivy-action@v0.29.0
         with:
           scan-type: 'fs'
           format: 'table'
