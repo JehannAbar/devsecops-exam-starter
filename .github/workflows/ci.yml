@@ -38,6 +38,7 @@ jobs:
           format: 'table'
           scan-ref: '.'
           severity: 'CRITICAL,HIGH,MEDIUM'
+          exit-code: '1'                                  # Stop the pipeline
 
       # Pull makes sure that we get the latest version of the docker image
       - name: Build the latest docker image
