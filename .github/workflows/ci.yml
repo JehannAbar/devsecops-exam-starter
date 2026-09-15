@@ -1,0 +1,44 @@
+name: Continuous Integration
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  tests:
+    # Most common OS to run on
+    runs-on: ubuntu-latest      
+    steps:
+
+      # Github action to check repo code
+      - name: Checkout code
+        uses: actions/checkout@v4   
+
+      # Sets up node js and makes sure it is the same as in docker
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24  
+
+      - name: Install dependencies
+        run: npm install  
+
+      - name: Run tests
+        run: npm test
+
+      # Run the Trivy scanner through a github action
+      # We use fs mode to check the actual source code
+      # Other scan types such as git repo and image seem less appropriate
+      - name: Run Trivy vulnerability scanner in fs mode
+        uses: aquasecurity/trivy-action@0.29.0
+        with:
+          scan-type: 'fs'
+          format: 'table'
+          scan-ref: '.'
+          severity: 'CRITICAL,HIGH,MEDIUM'
+
+      # Pull makes sure that we get the latest version of the docker image
+      - name: Build the latest docker image
+        run: docker build --pull -t macky-merch-api .

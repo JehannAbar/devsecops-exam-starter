@@ -1,0 +1,22 @@
+# Ignore git, gitignore, and node_modules
+.git/
+.gitignore
+node_modules/
+
+# Markdown files
+*.md 
+
+# Testing
+coverage
+*.test.js
+
+# Exclude environment files 
+.env
+**/.env
+
+# You also do not need docker files for the image 
+Dockerfile*
+.dockerignore
+
+# OS files
+.DS_Store
