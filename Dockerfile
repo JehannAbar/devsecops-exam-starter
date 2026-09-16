@@ -20,6 +20,7 @@ FROM node:24-alpine
 WORKDIR /app
 ENV NODE_ENV=production \ PORT=3000
 COPY --chown=node:node --from=builder /app/node_modules ./node_modules
+COPY --chown=node:node --from=builder /app/package*.json ./
 COPY --chown=node:node --from=builder /app/server.js ./
 
 # Run user as non-root for security
