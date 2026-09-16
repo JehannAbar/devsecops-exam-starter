@@ -64,6 +64,9 @@ To reduce the image size even further, a multi-stage build was performed. A mult
 * Trivy was the chosen vulnerability scanner for its versatility. It could be used to scan for container images, git repositories, and, local source code files, configurations, and many more.
 * The user is also non-root for security reasons. Someone could escape that container environment, known as a [container escape](https://www.wiz.io/academy/container-security/container-escape), by having root permissions on that container.
 
+### Branch Rule Protection
+Enforces a rule to prevent merging pull requests whenever Github Actions fails by enabling status checks to pass.
+
 
 ## Vulnerability Demonstration
 
@@ -79,4 +82,8 @@ The images below are proof:
 
 ## Challenges Faced
 
-I went into this challenge with very little knowledge on Docker, Github Actions, and the CI/CD pipeline in general. Initially the syntax was overwhelming since there were a lot of background concepts I needed to learn such as Github Events, containers, images and others. Especially Docker containers because they require a lot of background knowledge. I was also initially confused on why multi-staging docker would help reduce the size because a lot of the ways people use it is by copying the compiled binary in the second step. This is different from interpreted languages which do not produce any form of binary. I also faced issues in terms of syntax during the Continuous Integration process, such as not putting the correct version tags. However, I was able to overcome them by researching the material and its documentation, watching videos, and help from AI for conceptual understanding of the pipeline, I was able to do it. 
+I went into this challenge with very little knowledge on Docker, Github Actions, and the CI/CD pipeline in general. Initially the syntax was overwhelming since there were a lot of background concepts I needed to learn such as Github Events, containers, images and others. Especially Docker containers because they require a lot of background knowledge. 
+
+I was also initially confused on why multi-staging docker would help reduce the size because a lot of the ways people use it is by copying the compiled binary in the second step. This is different from interpreted languages which do not produce any form of binary. I also faced issues in terms of syntax during the Continuous Integration process, such as not putting the correct version tags. 
+
+However, I was able to overcome them by researching the material and its documentation, watching videos, and help from AI for conceptual understanding of the pipeline, I was able to do it. 
