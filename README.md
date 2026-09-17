@@ -86,4 +86,4 @@ I went into this challenge with very little knowledge on Docker, Github Actions,
 
 I was also initially confused on why multi-staging docker would help reduce the size because a lot of the ways people use it is by copying the compiled binary in the second step. This is different from interpreted languages which do not produce any form of binary. I also faced issues in terms of syntax during the Continuous Integration process, such as not putting the correct version tags. 
 
-However, I was able to overcome them by researching the material and its documentation, watching videos, and help from AI for conceptual understanding of the pipeline, I was able to do it. 
+However, I was able to overcome them by researching the material and its documentation, watching videos, and help from AI for conceptual understanding of the pipeline. 
